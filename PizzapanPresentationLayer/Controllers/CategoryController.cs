@@ -38,6 +38,18 @@ namespace PizzapanPresentationLayer.Controllers
             _categoryService.TDelete(value);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public IActionResult UpdateCategory(int id)
+        {
+            var value = _categoryService.TGetById(id);
+            return View(value);
+        
+        }
+        public IActionResult UpdateCategory(Category category) 
+        {
+            _categoryService.TUpdate(category);
+            return RedirectToAction("Index");
+        }
         
     }
 }
