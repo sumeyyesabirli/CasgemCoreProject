@@ -21,4 +21,9 @@
     <ProjectReference Include="..\PizzapanEntityLayer\PizzapanEntityLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="EntityFramework\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
 </Project>
