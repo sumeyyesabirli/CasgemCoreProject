@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PizzapanBusinessLayer.Concrete
 {
-    internal class ProductManager : IProductService
+    public class ProductManager : IProductService
     {
         private readonly IProductDal _productDal;
 

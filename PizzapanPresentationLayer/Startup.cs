@@ -31,6 +31,8 @@ namespace PizzapanPresentationLayer
             services.AddDbContext<Context>();
             services.AddScoped<ICategoryService, CategoryManager>();
             services.AddScoped<ICategoryDal, EfCategoryDal>();
+            services.AddScoped<IProductService, ProductManager>();
+            services.AddScoped<IProductDal, EfProductDal>();
             services.AddControllersWithViews();
         }
 
