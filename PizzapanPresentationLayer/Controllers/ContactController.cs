@@ -19,18 +19,11 @@ namespace PizzapanPresentationLayer.Controllers
             return View(values);
         }
 
-        //[HttpGet]
-        //public IActionResult AddContact()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public IActionResult AddContact(Contact contact)
-        //{
-        //    _contactService.TInsert(contact);
-        //    return RedirectToAction("Index");
-        //}
+        public ActionResult GetMessageByTesekkur()
+        {
+            var values = _contactService.TGetContactBySubjectWithTesekkur();
+            return View(values);
+        }
 
         public IActionResult DeleteContact(int id)
         {
@@ -38,17 +31,6 @@ namespace PizzapanPresentationLayer.Controllers
             _contactService.TDelete(value);
             return RedirectToAction("Index");
         }
-        //[HttpGet]
-        //public IActionResult UpdateContact(int id)
-        //{
-        //    var value = _contactService.TGetById(id);
-        //    return View(value);
 
-        //}
-        //public IActionResult UpdateContact(Contact contact)
-        //{
-        //    _contactService.TUpdate(contact);
-        //    return RedirectToAction("Index");
-        //}
     }
 }
