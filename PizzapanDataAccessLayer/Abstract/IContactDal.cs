@@ -9,5 +9,6 @@ namespace PizzapanDataAccessLayer.Abstract
 {
     public interface IContactDal : IGenericDal<Contact>
     {
+        List<Contact> GetContactBySubjectWithTesekkur();
     }
 }
