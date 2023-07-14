@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PizzapanDataAccessLayer.Concrete;
 
 namespace PizzapanDataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20230714085947_mig_discount_add_entity")]
+    partial class mig_discount_add_entity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,17 +70,14 @@ namespace PizzapanDataAccessLayer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Coupon")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DiscountCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DiscountCount")
+                    b.Property<int>("UseNumber")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("EndingDate")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("DiscountId");
 

@@ -39,6 +39,9 @@ namespace PizzapanPresentationLayer
 
             services.AddScoped<ITestimonialService, TestimonialManager>();
             services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+
+            services.AddScoped<IDiscountService, DiscountManager>();
+            services.AddScoped<IDiscountDal, EfDiscountDal>();
             services.AddControllersWithViews();
         }
 

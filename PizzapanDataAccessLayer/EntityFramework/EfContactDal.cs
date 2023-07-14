@@ -15,7 +15,7 @@ namespace PizzapanDataAccessLayer.EntityFramework
         public List<Contact> GetContactBySubjectWithTesekkur()
         {
             using var context = new Context();
-            var values = context.Contacts.Where(x=>x.Subject == "Teşekkür").ToList();
+            var values = context.Contacts.Where(x => x.Subject == "Teşekkür").ToList();
             return values;
         }
     }
