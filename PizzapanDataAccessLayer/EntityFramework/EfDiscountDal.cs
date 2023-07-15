@@ -21,7 +21,7 @@ namespace PizzapanDataAccessLayer.EntityFramework
             c3 = random.Next(0, symbols.Length);
             c4 = random.Next(0, symbols.Length);
             int c5 = random.Next(10, 100);
-           string code = symbols[c1] + symbols[c2] + symbols[c3] + symbols[c4] + c5;
+            string code = symbols[c1] + symbols[c2] + symbols[c3] + symbols[c4] + c5;
            
         }
     }
