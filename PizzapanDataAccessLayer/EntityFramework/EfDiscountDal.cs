@@ -11,7 +11,7 @@ namespace PizzapanDataAccessLayer.EntityFramework
 {
     public class EfDiscountDal : GenericRepository<Discount>, IDiscountDal
     {
-        public void RandomCreateCode()
+        public string RandomCreateCode()
         {
             string[] symbols = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M" };
             int c1, c2, c3, c4;
@@ -22,6 +22,7 @@ namespace PizzapanDataAccessLayer.EntityFramework
             c4 = random.Next(0, symbols.Length);
             int c5 = random.Next(10, 100);
             string code = symbols[c1] + symbols[c2] + symbols[c3] + symbols[c4] + c5;
+            return code;
            
         }
     }

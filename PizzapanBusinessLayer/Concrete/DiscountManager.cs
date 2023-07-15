@@ -38,9 +38,9 @@ namespace PizzapanBusinessLayer.Concrete
             _discountDal.Insert(entity);
         }
 
-        public void TRandomCreateCode()
+        public string TRandomCreateCode()
         {
-            _discountDal.RandomCreateCode();
+            return _discountDal.RandomCreateCode();
         }
 
         public void TUpdate(Discount entity)
