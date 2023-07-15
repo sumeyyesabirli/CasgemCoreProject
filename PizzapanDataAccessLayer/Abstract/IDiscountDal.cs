@@ -9,5 +9,6 @@ namespace PizzapanDataAccessLayer.Abstract
 {
     public interface IDiscountDal : IGenericDal<Discount>
     {
+        void RandomCreateCode();
     }
 }

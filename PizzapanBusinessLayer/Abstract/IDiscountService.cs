@@ -9,5 +9,6 @@ namespace PizzapanBusinessLayer.Abstract
 {
     public interface IDiscountService:IGenericService<Discount>
     {
+        void TRandomCreateCode();
     }
 }
