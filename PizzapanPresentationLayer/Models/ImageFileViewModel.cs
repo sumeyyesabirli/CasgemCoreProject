@@ -4,7 +4,7 @@ namespace PizzapanPresentationLayer.Models
 {
     public class ImageFileViewModel
     {
-        public string ImageURl { get; set; }
+        public string ImageUrl { get; set; }
         public IFormFile Image { get; set; }
     }
 }

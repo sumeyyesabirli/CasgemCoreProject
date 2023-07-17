@@ -4,7 +4,7 @@ using PizzapanEntityLayer.Concrete;
 using PizzapanPresentationLayer.Models;
 using System.Threading.Tasks;
 
-namespace Pizzapan.PresentationLayer.Controllers
+namespace PizzapanPresentationLayer.Controllers
 {
     public class ConfirmEmailController : Controller
     {

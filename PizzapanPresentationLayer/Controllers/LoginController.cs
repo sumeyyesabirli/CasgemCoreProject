@@ -1,20 +1,17 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using PizzapanEntityLayer.Concrete;
 using PizzapanPresentationLayer.Models;
-using System;
 using System.Threading.Tasks;
 
-namespace PizzapanPresentationLayer.Controllers
+namespace Pizzapan.PresentationLayer.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly SignInManager<AppUser> _singInManager;
-
-        public LoginController(SignInManager<AppUser> singInManager)
+        private readonly SignInManager<AppUser> _signInManager;
+        public LoginController(SignInManager<AppUser> signInManager)
         {
-            _singInManager = singInManager;
+            _signInManager = signInManager;
         }
 
         [HttpGet]
@@ -26,13 +23,12 @@ namespace PizzapanPresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(LoginViewModel model)
         {
-            var result = await _singInManager.PasswordSignInAsync(model.Username, model.Password, true, true);
+            var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, true, true);
             if (result.Succeeded)
             {
                 return RedirectToAction("Index", "Category");
             }
             return View();
         }
-
     }
 }

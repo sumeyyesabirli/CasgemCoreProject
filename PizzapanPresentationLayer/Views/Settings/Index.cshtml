@@ -4,26 +4,26 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Kullanıcı Profil Sayfası </h1>
-<from method="post">
+<h1>Kullanıcı Profil Sayfası</h1>
+
+<form method="post">
     <label>Kullanıcı Adı</label>
-    <input type="text" class="form-control border" asp-for="Username"/>
+    <input type="text" class="form-control border" asp-for="Username" />
     <br />
     <label>Adınız</label>
     <input type="text" class="form-control border" asp-for="Name" />
     <br />
-    <label>SoyAdınız</label>
+    <label>Soyadınız</label>
     <input type="text" class="form-control border" asp-for="Surname" />
     <br />
     <label>Şehriniz</label>
     <input type="text" class="form-control border" asp-for="City" />
     <br />
-    <label>Email Adresi</label>
-    <input type="text" class="form-control border" asp-for="Email" />
+    <label>Email Adresiniz</label>
+    <input type="email" class="form-control border" asp-for="Email" />
     <br />
     <label>Şifreniz</label>
-    <input type="text" class="form-control border" asp-for="Password" />
+    <input type="password" class="form-control border" asp-for="Password" />
     <br />
     <button class="btn btn-outline-primary">Bilgileri Güncelle</button>
-</from>
-
+</form>

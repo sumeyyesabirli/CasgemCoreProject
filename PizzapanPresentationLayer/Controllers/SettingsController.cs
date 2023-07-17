@@ -9,12 +9,10 @@ namespace PizzapanPresentationLayer.Controllers
     public class SettingsController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
-
         public SettingsController(UserManager<AppUser> userManager)
         {
             _userManager = userManager;
         }
-
         [HttpGet]
         public async Task<IActionResult> Index()
         {
@@ -27,15 +25,14 @@ namespace PizzapanPresentationLayer.Controllers
             model.Username = value.UserName;
             return View(model);
         }
-
         [HttpPost]
         public async Task<IActionResult> Index(UserEditViewModel model)
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
-            user.Name = model.Name;
             user.Surname = model.Surname;
-            user.Email = model.Email;
+            user.Name = model.Name;
             user.City = model.City;
+            user.Email = model.Email;
             user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, model.Password);
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
@@ -45,7 +42,6 @@ namespace PizzapanPresentationLayer.Controllers
             else
             {
                 return View();
-
             }
         }
     }

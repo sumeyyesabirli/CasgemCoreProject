@@ -1,14 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace PizzapanPresentationLayer.ViewComponents.Default
+namespace Pizzapan.PresentationLayer.ViewComponents.Default
 {
-    public class _HeadPartial:ViewComponent
+    public class _HeadPartial : ViewComponent
     {
-
         public IViewComponentResult Invoke()
         {
             return View();
         }
-       
     }
 }

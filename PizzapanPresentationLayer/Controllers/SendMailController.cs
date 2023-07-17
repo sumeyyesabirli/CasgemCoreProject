@@ -12,13 +12,13 @@ namespace PizzapanPresentationLayer.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public IActionResult Index(MailRequest mailRequest)
         {
             MimeMessage mimeMessage = new MimeMessage();
             MailboxAddress mailboxAddressFrom = new MailboxAddress("Admin", "sumeyyesabirli@gmail.com");
             mimeMessage.From.Add(mailboxAddressFrom);
+
             MailboxAddress mailboxAddressTo = new MailboxAddress("User", mailRequest.ReceiverMail);
             mimeMessage.To.Add(mailboxAddressTo);
 
@@ -27,11 +27,13 @@ namespace PizzapanPresentationLayer.Controllers
             mimeMessage.Body = bodyBuilder.ToMessageBody();
 
             mimeMessage.Subject = mailRequest.Subject;
+
             SmtpClient smtpClient = new SmtpClient();
             smtpClient.Connect("smtp.gmail.com", 587, false);
             smtpClient.Authenticate("sumeyyesabirli@gmail.com", "pfbwqqopzrphnuyk");
             smtpClient.Send(mimeMessage);
             smtpClient.Disconnect(true);
+
             return View();
         }
     }
