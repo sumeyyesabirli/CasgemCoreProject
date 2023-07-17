@@ -9,6 +9,7 @@ using PizzapanDataAccessLayer.Abstract;
 using PizzapanDataAccessLayer.Concrete;
 using PizzapanDataAccessLayer.EntityFramework;
 using PizzapanEntityLayer.Concrete;
+using PizzapanPresentationLayer.Models;
 
 namespace Pizzapan.PresantationLayer
 {
@@ -36,7 +37,7 @@ namespace Pizzapan.PresantationLayer
 
             services.AddScoped<IDiscountService, DiscountManager>();
             services.AddScoped<IDiscountDal, EfDiscountDal>();
-            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
+            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>();
             services.AddControllersWithViews();
 
         }
