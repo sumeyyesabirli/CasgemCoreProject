@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PizzapanBusinessLayer.Abstract;
 
 namespace PizzapanPresentationLayer.ViewComponents.Default
 {
-    public class _HeadPartial : ViewComponent
+    public class _NavbarPartial:ViewComponent
     {
         public IViewComponentResult Invoke()
         {
-
             return View();
         }
     }
