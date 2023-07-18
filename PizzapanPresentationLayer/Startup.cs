@@ -44,6 +44,9 @@ namespace Pizzapan.PresantationLayer
             services.AddScoped<ITestimonialService, TestimonialManager>();
             services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 
+              services.AddScoped<IOurTeamService, OurTeamManager>();
+            services.AddScoped<IOurTeamDal, EfOurTeamDal>();
+
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>();
             services.AddControllersWithViews();
 
