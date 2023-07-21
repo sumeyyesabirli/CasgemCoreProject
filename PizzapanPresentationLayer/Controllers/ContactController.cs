@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PizzapanBusinessLayer.Abstract;
+using PizzapanEntityLayer.Concrete;
+using System;
 
 namespace PizzapanPresentationLayer.Controllers
 {
@@ -25,6 +27,20 @@ namespace PizzapanPresentationLayer.Controllers
         {
             var values = _contactService.TGetContactBySubjectWithTesekkur();
             return View(values);
+        }
+        [HttpGet]
+        public IActionResult Contact()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Contact(Contact contact)
+        {
+            contact.SendDateMassage = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            _contactService.TInsert(contact);
+
+            return RedirectToAction("Index", "Default");
+
         }
     }
 }

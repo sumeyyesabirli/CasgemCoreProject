@@ -9,12 +9,12 @@ namespace Pizzapan.PresentationLayer.Controllers
     public class LoginController : Controller
     {
         private readonly SignInManager<AppUser> _signInManager;
+
         public LoginController(SignInManager<AppUser> signInManager)
         {
             _signInManager = signInManager;
         }
 
-        [HttpGet]
         public IActionResult Index()
         {
             return View();
