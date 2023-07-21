@@ -19,7 +19,6 @@ namespace PizzapanPresentationLayer.Controllers
         public IActionResult Index()
         {
             var values = _context.Categories.Include(x => x.Products).ToList();
-
             return View(values);
         }
     }
