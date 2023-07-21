@@ -4,31 +4,35 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>İndirim Kodu Listesi</h1>
+<<h1>İndirim Kodu Listesi</h1>
+<form>
+    <table class="table table-bordered">
+        <tr>
+            <th>İndirim Kodu</th>
+            <th>Kullanım Hakkı</th>
+            <th>Son Kullanma Tarihi</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            if (item.EndingDate < DateTime.Now)
+            {
+                <tr style="background-color:darkgray">
+                    <td>@item.DiscountCode</td>
+                    <td>@item.DiscountCount</td>
+                    <td>@(((DateTime)item.EndingDate).ToString("dd-MMM-yyyy"))</td>
+                </tr>
+            }
+            else
+            {
+                <tr style="background-color:antiquewhite">
+                    <td>@item.DiscountCode</td>
+                    <td>@item.DiscountCount</td>
+                    <td>@(((DateTime)item.EndingDate).ToString("dd-MMM-yyyy"))</td>
+                </tr>
 
-<table class="table table-bordered">
-    <tr>
-        <th>İndirim Kodu</th>
-        <th>Kullanım Hakkı</th>
-        <th>Son Kullanma Tarihi</th>
-    </tr>
-    @foreach (var item in Model)
-    {
-        if (item.EndingDate < DateTime.Now)
-        {
-            <tr style="background-color:orangered">
-                <td>@item.DiscountCode</td>
-                <td>@item.DiscountCount</td>
-                <td>@(((DateTime)item.EndingDate).ToString("dd-MMM-yyyy"))</td>
-            </tr>
+            }
         }
-        else
-        {
-            <tr style="background-color:lightgreen">
-                <td>@item.DiscountCode</td>
-                <td>@item.DiscountCount</td>
-                <td>@(((DateTime)item.EndingDate).ToString("dd-MMM-yyyy"))</td>
-            </tr>
-        }
-    }
-</table>
+
+    </table>
+    <a href="/Discount/CreateCode/" class="btn btn-outline-primary">kod oluşturma ekranı </a>
+</form>
